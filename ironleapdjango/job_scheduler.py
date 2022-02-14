@@ -20,7 +20,7 @@ class JobScheduler:
         try:
             if debug:
                 print("Sending events to Iron Leap")
-            client.post_events_batch(batch_events)
+            client.post_events_batch(batch_events, debug)
             if debug:
                 print("Events sent successfully")
         except Exception as ex:

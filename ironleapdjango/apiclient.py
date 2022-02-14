@@ -10,7 +10,12 @@ class ApiClient(object):
             'X-Ironleap-Application-ID': app_key,
         }
 
-    def post_events_batch(self, batch):
-        resp = requests.post(self.uri, headers=self.headers, data=json_serialize(batch))
+    def post_events_batch(self, batch, debug):
+        data = json_serialize(batch)
+        if debug:
+            print("URI: ", self.uri)
+            print("Headers: ", self.headers)
+            print("Data: ", data)
+        resp = requests.post(self.uri, headers=self.headers, data=data)
         if (resp.status_code < 200) or (resp.status_code > 208):
             raise Exception("HTTP response suggests error")
