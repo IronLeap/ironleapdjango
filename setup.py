@@ -15,16 +15,16 @@ setup(
     name='ironleapdjango',
     author='Iron Leap Inc.',
     author_email='founders@ironleap.io',
-    version='1.0.1',
+    version='1.0.2',
     description='Iron Leap Django SDK',
     long_description=long_description,
     long_description_content_type="text/markdown",
     url='https://ironleap.io',
     packages=find_packages(exclude=['contrib', 'docs', 'tests']),
     install_requires=[
-        "requests==2.20.0",
-        "jsonpickle==0.7.1",
-        "python-dateutil==2.5.3",
-        "apscheduler==3.6.1"
+        "requests>=2.20.0",
+        "jsonpickle>=0.7.1",
+        "python-dateutil>=2.5.3",
+        "apscheduler>=3.6.1"
     ],
 )
