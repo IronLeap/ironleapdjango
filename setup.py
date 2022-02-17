@@ -15,7 +15,7 @@ setup(
     name='ironleapdjango',
     author='Iron Leap Inc.',
     author_email='founders@ironleap.io',
-    version='1.1.0',
+    version='1.1.1',
     description='Iron Leap Django SDK',
     long_description=long_description,
     long_description_content_type="text/markdown",

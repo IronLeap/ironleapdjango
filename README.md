@@ -54,7 +54,7 @@ to add custom metadata that will be associated with the event. The metadata must
 (optional) __int__, default 25, Batch size with which events get sent to Iron Leap.
 
 #### __`EVENT_QUEUE_SIZE`__
-(optional) __int__, default 1000, Maximum number of events to hold in queue before sending.
+(optional) __int__, default 2500, Maximum number of events to hold in queue before sending.
 
 #### __`BATCH_SEND_INTERVAL`__
 (optional) __int__, default 2, Number of seconds between sends of batch.
