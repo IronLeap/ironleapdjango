@@ -29,7 +29,7 @@ class ironleap_middleware:
         self.last_updated_time = datetime.utcnow()
         self.last_event_job_run_time = datetime(1970, 1, 1, 0, 0) # Assuming job never ran, set it to epoch start time
         self.scheduler = None
-        self.event_queue_size = self.middleware_settings.get('EVENT_QUEUE_SIZE', 1000)
+        self.event_queue_size = self.middleware_settings.get('EVENT_QUEUE_SIZE', 2500)
         self.events_queue = queue.Queue(maxsize=self.event_queue_size)
         self.event_batch_size = self.middleware_settings.get('BATCH_SIZE', 25)
         self.batch_send_interval = self.middleware_settings.get('BATCH_SEND_INTERVAL', 2)
@@ -70,7 +70,7 @@ class ironleap_middleware:
         # Code to be executed for each request before
         # the view (and later middleware) are called.
 
-        # Setup response so it can be read from
+        # Setup request so it can be read from
         req_time = timezone.now()
         try:
             request._il_body = request.body
@@ -145,7 +145,7 @@ class ironleap_middleware:
                         print(str(ex))
             if self.DEBUG:
                 print("Add APIEvent to the queue")
-            self.events_queue.put(event)
+            self.events_queue.put_nowait(event)
         except Exception as ex:
             if self.DEBUG:
                 print("Error while adding event to the queue")

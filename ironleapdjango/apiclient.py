@@ -1,7 +1,6 @@
 import requests
 from .schemas import json_serialize
 
-
 class ApiClient(object):
     def __init__(self, app_key, uri):
         self.uri = uri
