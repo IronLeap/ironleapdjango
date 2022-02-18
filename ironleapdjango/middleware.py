@@ -90,6 +90,8 @@ class ironleap_middleware:
         try:
             skip_event_response = self.logger_helper.skip_event(request, response, self.middleware_settings, self.DEBUG)
             if skip_event_response:
+                fin_time = timezone.now()
+                print((fin_time - req_time).total_seconds())
                 return skip_event_response
 
             req_headers = self.logger_helper.parse_request_headers(request, self.middleware_settings, self.DEBUG)
