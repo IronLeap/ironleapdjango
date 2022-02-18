@@ -151,4 +151,6 @@ class ironleap_middleware:
                 print("Error while adding event to the queue")
                 print(str(ex))
 
+        fin_time = timezone.now()
+        print((fin_time - req_time).total_seconds())
         return response
